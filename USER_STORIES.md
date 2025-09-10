@@ -27,11 +27,11 @@ A React-based memory card game using Pokemon characters from PokeAPI where playe
 **As a developer, I want to fetch Pokemon data from PokeAPI so that I can display Pokemon characters as game cards.**
 
 **Acceptance Criteria:**
-- [ ] Fetch Pokemon data from https://pokeapi.co/api/v2/pokemon/{id}
-- [ ] Retrieve Pokemon name and sprite image
-- [ ] Handle API errors gracefully with fallback content
-- [ ] Cache Pokemon data to avoid repeated API calls
-- [ ] Load appropriate number of Pokemon based on difficulty:
+- [x] Fetch Pokemon data from https://pokeapi.co/api/v2/pokemon/{id}
+- [x] Retrieve Pokemon name and sprite image
+- [x] Handle API errors gracefully with fallback content
+- [x] Cache Pokemon data to avoid repeated API calls
+- [x] Load appropriate number of Pokemon based on difficulty:
   - Easy: 20 unique Pokemon
   - Medium: 16 unique Pokemon  
   - Hard: 12 unique Pokemon
