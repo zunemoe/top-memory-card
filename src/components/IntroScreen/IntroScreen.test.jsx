@@ -2,23 +2,9 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import IntroScreen from './IntroScreen';
 import { DIFFICULTY_LEVELS, GAME_MESSAGES } from '../../utils/constants';
 
-// Create mock functions that can track calls
-let mockOnStartGameCalls = [];
-let mockOnDifficultyChangeCalls = [];
-
-const createMockFn = (callsArray) => {
-  const fn = (...args) => {
-    callsArray.push(args);
-  };
-  fn.mockClear = () => {
-    callsArray.length = 0;
-  };
-  return fn;
-};
-
 describe('IntroScreen', () => {
-    const mockOnStartGame = createMockFn(mockOnStartGameCalls);
-    const mockOnDifficultyChange = createMockFn(mockOnDifficultyChangeCalls);
+    const mockOnStartGame = jest.fn();
+    const mockOnDifficultyChange = jest.fn();
     
     const defaultProps = {
         selectedDifficulty: null,

@@ -32,10 +32,10 @@ const IntroScreen = ({
               <span>Easy: {highScores.easy}</span>
             </div>
             <div className="score-item">
-              <span>Easy: {highScores.medium}</span>
+              <span>Medium: {highScores.medium}</span>
             </div>
             <div className="score-item">
-              <span>Easy: {highScores.hard}</span>
+              <span>Hard: {highScores.hard}</span>
             </div>
           </div>
         </section>

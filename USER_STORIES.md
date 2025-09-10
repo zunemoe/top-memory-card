@@ -11,14 +11,15 @@ A React-based memory card game using Pokemon characters from PokeAPI where playe
 **As a player, I want to see an intro screen with difficulty options so that I can choose my preferred challenge level.**
 
 **Acceptance Criteria:**
-- [ ] Display game title prominently
-- [ ] Show three difficulty buttons: Easy, Medium, Hard
-- [ ] Display current high score for each difficulty
-- [ ] Include a "Start Game" button that becomes active after selecting difficulty
-- [ ] Show game rules/instructions
-- [ ] Easy mode: 20 different Pokemon characters available
-- [ ] Medium mode: 16 different Pokemon characters available  
-- [ ] Hard mode: 12 different Pokemon characters available
+- [x] Display game title prominently
+- [x] Show three difficulty buttons: Easy, Medium, Hard
+- [x] Display current high score for each difficulty
+- [x] Include a "Start Game" button that becomes active after selecting difficulty
+- [x] Show game rules/instructions
+- [x] Easy mode: 20 different Pokemon characters available
+- [x] Medium mode: 16 different Pokemon characters available  
+- [x] Hard mode: 12 different Pokemon characters available
+- [ ] Apply styling
 
 ---
 
