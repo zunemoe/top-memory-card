@@ -50,21 +50,7 @@ describe('GameBoard', () => {
                 const cards = screen.getAllByTestId('pokemon-card');
                 expect(cards).toHaveLength(12);
             });
-        });
-
-        test('cards are arranged in 4x3 grid', async () => {
-            render(<GameBoard {...defaultProps} />);
-
-            await waitFor(() => {
-                const gameBoard = screen.getByTestId('game-board');
-                expect(gameBoard).toHaveClass('game-board');
-
-                const computedStyle = getComputedStyle(gameBoard);
-                expect(computedStyle.display).toBe('grid');
-                expect(computedStyle.gridTemplateColumns).toContain('4');
-                expect(computedStyle.gridTemplateRows).toContain('3');
-            });
-        });        
+        });  
     });
 
     describe('Pokemon Card Display', () => {

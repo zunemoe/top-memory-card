@@ -21,5 +21,6 @@ export default {
   ],
   coverageDirectory: 'coverage',
   coverageReporters: ['text', 'lcov', 'html'],
+  extensionsToTreatAsEsm: ['.jsx'],
   injectGlobals: true
 };
