@@ -133,6 +133,7 @@ describe('GameBoard', () => {
                 ...defaultProps,
                 pokemonPool: null,
                 gameStarted: false
+                
             };
             render(<GameBoard {...loadingProps} />);
 

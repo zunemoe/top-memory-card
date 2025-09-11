@@ -10,12 +10,30 @@ export const useGameState = () => {
 
     const handleStartGame = (difficulty) => {
         console.log('Starting game with difficulty:', difficulty);
+        setGameState('playing');
+        setSelectedDifficulty(difficulty);
+    };
+
+    const resetToMenu = () => {
+        setGameState('menu');
+        setSelectedDifficulty(null);
+    };
+
+    const handleGameOver = () => {
+        setGameState('game-over');
+    };
+
+    const handleVictory = () => {
+        setGameState('victory');
     };
 
     return {
         gameState,
         selectedDifficulty,
         handleDifficultyChange,
-        handleStartGame,        
+        handleStartGame,  
+        resetToMenu,
+        handleGameOver,
+        handleVictory      
     };
 };
