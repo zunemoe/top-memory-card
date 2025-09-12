@@ -11,17 +11,37 @@ const GameBoard = ({
     gameStarted,
     pokemonPool,
     error,
-    onRetry
+    onRetry,
+    shouldShuffle,
+    shuffleKey,
+    onShuffleComplete
 }) => {
     const [currentCards, setCurrentCards] = useState([]);
+    const [isShuffling, setIsShuffling] = useState(false);
 
     useEffect(() => {
         if (pokemonPool && pokemonPool.length > 0) {
             const selectedCards = selectCardsForBoard(pokemonPool, GAME_BOARD.TOTAL_CARDS);
-            const shuffledCards = shuffleArray(selectedCards);
+            // const shuffledCards = shuffleArray(selectedCards);
             setCurrentCards(shuffledCards);
         }
     }, [pokemonPool, difficulty]);
+
+    useEffect(() => {
+        if (shouldShuffle && currentCards.length > 0) {
+            setIsShuffling(true);
+
+            setTimeout(() => {
+                const shuffledCards = shuffleArray([...currentCards]);
+                setCurrentCards(shuffledCards);
+
+                setTimeout(() => {
+                    setIsShuffling(false);
+                    if (onShuffleComplete) onShuffleComplete();
+                }, 300);
+            }, 100);
+        }
+    }, [shouldShuffle, shuffleKey]);
 
     if (!gameStarted || !pokemonPool) {
         return (
@@ -53,14 +73,14 @@ const GameBoard = ({
     return (
         <div className="game-board-container">
             <div 
-            className="game-board responsive-grid"
+            className={`game-board responsive-grid ${isShuffling ? 'shuffling' : ''}`}
             data-testid="game-board"
             >
-                {currentCards.map(pokemon => (
+                {currentCards.map((pokemon, index) => (
                     <Card
-                        key={pokemon.id}
+                        key={`${pokemon.id}-${shuffleKey || 0}-${index}`}
                         pokemon={pokemon}
-                        onClick={() => onCardClick(pokemon.id)}
+                        onClick={() => onCardClick(pokemon)}
                         data-testid="pokemon-card"
                     />
                 ))}

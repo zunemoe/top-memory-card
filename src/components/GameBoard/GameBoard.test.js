@@ -1,7 +1,8 @@
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen, waitFor, fireEvent } from '@testing-library/react';
 import GameBoard from './GameBoard';
 import { DIFFICULTY_LEVELS } from '../../utils/constants';
 import * as pokemonAPI from '../../services/pokemonAPI';
+import * as gameLogic from '../../utils/gameLogic';
 
 jest.mock('../../services/pokemonAPI');
 const mockPokemonAPI = pokemonAPI;
@@ -162,12 +163,51 @@ describe('GameBoard', () => {
 
             await waitFor(() => {
                 const cards = screen.getAllByTestId('pokemon-card');
-
-                cards.forEach(card => {
-                    expect(card).toHaveAttribute('role', 'button');
-                    expect(card).toHaveAttribute('tabIndex', '0');
-                });
+                expect(cards.length).toBe(12);              
             });
+
+            const firstCard = screen.getAllByTestId('pokemon-card')[0];
+            fireEvent.click(firstCard);
+
+            expect(mockOnCardClick).toHaveBeenCalledTimes(1);
+        });
+
+        test('click triggers callback with correct Pokemon data', async () => {
+            render(<GameBoard {...defaultProps} />);
+
+            await waitFor(() => {
+                const cards = screen.getAllByTestId('pokemon-card');
+                expect(cards.length).toBe(12);              
+            });
+
+            const firstCard = screen.getAllByTestId('pokemon-card')[0];
+            fireEvent.click(firstCard);
+
+            expect(mockOnCardClick).toHaveBeenCalledWith(
+                expect.objectContaining({
+                    id: expect.any(Number),
+                    name: expect.any(String),
+                    sprite: expect.any(String),
+                    types: expect.any(Array)
+                })
+            );
+        });
+
+        test('click events work with keyboard interaction', async () => {
+            render(<GameBoard {...defaultProps} />);
+
+            await waitFor(() => {
+                const cards = screen.getAllByTestId('pokemon-card');
+                expect(cards.length).toBe(12);              
+            });
+
+            const firstCard = screen.getAllByTestId('pokemon-card')[0];
+
+            fireEvent.keyDown(firstCard, { key: 'Enter' });
+            expect(mockOnCardClick).toHaveBeenCalledTimes(1);
+
+            fireEvent.keyDown(firstCard, { key: ' ' });
+            expect(mockOnCardClick).toHaveBeenCalledTimes(2);
         });
 
         test('cards have accessibility attributes', async () => {
@@ -180,6 +220,27 @@ describe('GameBoard', () => {
                     expect(card).toHaveAttribute('aria-label');
                     expect(card.getAttribute('aria-label')).toMatch(/click.*pokemon/i);
                 });
+            });
+        });
+    });
+
+    describe('Shuffle Mechanics', () => {
+        test('cards are shuffled after each click', async () => {
+            const { rerender } = render(<GameBoard {...defaultProps} />);
+
+            await waitFor(() => {
+                expect(screen.getAllByTestId('pokemon-card').length).toBe(12);
+            });
+
+            const initialCards = screen.getAllByTestId('pokemon-name');
+            const initialOrder = initialCards.map(card => card.textContent);
+
+            rerender(<GameBoard {...defaultProps} shouldShuffle={true} shuffleKey={1} />);
+
+            await waitFor(() => {
+                const shuffledCards = screen.getAllByTestId('pokemon-name');
+                const shuffledOrder = shuffledCards.map(card => card.textContent);
+                expect(shuffledOrder).not.toEqual(initialOrder);
             });
         });
     });

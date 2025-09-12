@@ -42,12 +42,13 @@ A React-based memory card game using Pokemon characters from PokeAPI where playe
 **As a player, I want to see a 4x3 grid of Pokemon cards so that I can start playing the memory game.**
 
 **Acceptance Criteria:**
-- [ ] Display exactly 12 cards in a 4x3 grid layout
-- [ ] Each card shows a Pokemon sprite and name
-- [ ] Cards are randomly selected from the difficulty's Pokemon pool
-- [ ] All 12 visible cards are unique (no duplicates shown simultaneously)
-- [ ] Cards are responsive and properly sized for the grid
-- [ ] Loading state shown while Pokemon data is being fetched
+- [x] Display exactly 12 cards in a 4x3 grid layout
+- [x] Each card shows a Pokemon sprite and name
+- [x] Cards are randomly selected from the difficulty's Pokemon pool
+- [x] All 12 visible cards are unique (no duplicates shown simultaneously)
+- [x] Cards are responsive and properly sized for the grid
+- [x] Loading state shown while Pokemon data is being fetched
+- [ ] Apply styling
 
 ---
 
