@@ -22,7 +22,7 @@ const GameBoard = ({
     useEffect(() => {
         if (pokemonPool && pokemonPool.length > 0) {
             const selectedCards = selectCardsForBoard(pokemonPool, GAME_BOARD.TOTAL_CARDS);
-            // const shuffledCards = shuffleArray(selectedCards);
+            const shuffledCards = shuffleArray(selectedCards);
             setCurrentCards(shuffledCards);
         }
     }, [pokemonPool, difficulty]);

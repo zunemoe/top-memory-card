@@ -65,7 +65,7 @@ describe('GameBoard', () => {
                 expect(pokemonNames.length).toBe(12);
                 expect(pokemonSprites.length).toBe(12);
 
-                pokemonSprites.forEach((sprite, index) => {
+                pokemonSprites.forEach((sprite) => {
                     expect(sprite).toHaveAttribute('src');
                     expect(sprite).toHaveAttribute('alt');
                     expect(sprite.getAttribute('alt')).toBeTruthy();
