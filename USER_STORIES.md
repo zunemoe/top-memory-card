@@ -56,12 +56,12 @@ A React-based memory card game using Pokemon characters from PokeAPI where playe
 **As a player, I want cards to shuffle when I click one so that the game becomes challenging and I can't memorize positions.**
 
 **Acceptance Criteria:**
-- [ ] Cards shuffle randomly after each click
+- [x] Cards shuffle randomly after each click
 - [ ] Clicking a card triggers the shuffle animation
 - [ ] Shuffle animation is smooth and visually appealing
-- [ ] New card arrangement is completely randomized
-- [ ] Previously clicked card may or may not be visible after shuffle
-- [ ] Cards maintain their Pokemon data through shuffles
+- [x] New card arrangement is completely randomized
+- [x] Previously clicked card may or may not be visible after shuffle
+- [x] Cards maintain their Pokemon data through shuffles
 
 ---
 

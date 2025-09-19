@@ -2,13 +2,13 @@ import './Card.css';
 
 const Card = ({ pokemon, onClick }) => {
     const handleClick = () => {
-        onClick(pokemon.id);
+        onClick(pokemon);
     };
 
     const handleKeyDown = (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
-            onClick(pokemon.id);
+            onClick(pokemon);
         }
     };
 

@@ -29,6 +29,7 @@ export const useGameState = () => {
 
     return {
         gameState,
+        setGameState,
         selectedDifficulty,
         handleDifficultyChange,
         handleStartGame,  
