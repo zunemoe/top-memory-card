@@ -69,13 +69,13 @@ A React-based memory card game using Pokemon characters from PokeAPI where playe
 **As a player, I want my score to increase when I click a card I haven't clicked before so that I can track my progress.**
 
 **Acceptance Criteria:**
-- [ ] Score starts at 0 when game begins
-- [ ] Score increases by 1 for each new card clicked
+- [x] Score starts at 0 when game begins
+- [x] Score increases by 1 for each new card clicked
 - [ ] Current score is displayed prominently during gameplay
 - [ ] Highest score for the selected difficulty is displayed
 - [ ] Score persists through card shuffles
 - [ ] Visual feedback when score increases (animation/color change)
-- [ ] Maximum possible score equals the number of unique Pokemon in difficulty level
+- [x] Maximum possible score equals the number of unique Pokemon in difficulty level
 
 ---
 
@@ -83,12 +83,12 @@ A React-based memory card game using Pokemon characters from PokeAPI where playe
 **As a player, I want the game to end when I click the same card twice so that there are consequences for mistakes.**
 
 **Acceptance Criteria:**
-- [ ] Game ends immediately when a previously clicked card is clicked again
+- [x] Game ends immediately when a previously clicked card is clicked again
 - [ ] Display "Game Over" message with final score
 - [ ] Show which Pokemon card caused the game over
 - [ ] Disable further card clicking
-- [ ] Provide option to restart game
-- [ ] Provide option to return to main menu
+- [x] Provide option to restart game
+- [x] Provide option to return to main menu
 
 ---
 
