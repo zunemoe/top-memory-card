@@ -142,8 +142,9 @@ function App() {
               <button onClick={handleBackToMenu} className="back-to-menu-btn">
                 Back to Menu
               </button>
-              <h2>Score: 0</h2>
-              <p>Difficulty: {DIFFICULTY_CONFIG[selectedDifficulty]?.label}</p>
+              <h2 className="game-high-score">High Score: {highScores[selectedDifficulty]}</h2>
+              <h2 className="game-score">Current Score: {currentScore}</h2>
+              <p className="game-board-difficulty">Difficulty: {DIFFICULTY_CONFIG[selectedDifficulty]?.label}</p>
             </div>
             <GameBoard
               difficulty={selectedDifficulty}
@@ -161,7 +162,9 @@ function App() {
       case GAME_STATES.GAME_OVER:
         return (
           <div className="game-over-container">
-            <h2>Game Over!</h2>
+            <h2 className="game-over">Game Over!</h2>
+            <h2 className="game-high-score">High Score: {highScores[selectedDifficulty]}</h2>
+            <h2 className="game-score">Current Score: {currentScore}</h2>
             <button onClick={handleBackToMenu} className="back-to-menu-btn">
               Back to Menu
             </button>
@@ -173,7 +176,7 @@ function App() {
       case GAME_STATES.VICTORY:
         return (
           <div className="victory-container">
-            <h2>Congratulations! You won!</h2>
+            <h2 className="victory">Congratulations! You won!</h2>
             <button onClick={handleBackToMenu} className="back-to-menu-btn">
               Back to Menu
             </button>

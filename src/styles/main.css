@@ -1,2 +1,30 @@
 @import './reset.css';
 @import './variables.css';
+
+button {
+    font-family: var(--font-secondary);
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.game-high-score {
+    font-family: var(--font-secondary);
+    font-size: 1.5rem;
+}
+
+.game-score {
+    font-family: var(--font-secondary);
+    font-size: 1.5rem;
+}
+
+.game-board-difficulty {
+    font-family: var(--font-secondary);
+    font-size: 1.2rem;
+}
+
+.game-over {
+    font-family: var(--font-primary);
+    font-size: 2.5rem;
+    color: red;
+    margin-bottom: 1rem;
+}

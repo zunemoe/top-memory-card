@@ -1,0 +1,8 @@
+.intro-screen {
+    font-family: var(--font-primary);
+}
+
+.intro .title {
+    font-family: var(--font-secondary);
+    font-size: 3.5rem;
+}

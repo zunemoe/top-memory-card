@@ -20,8 +20,7 @@ const IntroScreen = ({
     return (
       <div className="intro-screen">
         <header className="intro">
-          <h1>Pokemon Memory Card Game</h1>
-          <p className="welcome-message">{GAME_MESSAGES.WELCOME}</p>
+          <h1 className="title">Pokemon Memory Card Game</h1>
           <p className="game-rules">{GAME_MESSAGES.GAME_RULES}</p>
         </header>
 

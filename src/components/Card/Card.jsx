@@ -22,28 +22,19 @@ const Card = ({ pokemon, onClick }) => {
         aria-label={`Click ${pokemon.name} pokemon card`}
         data-testid="pokemon-card"
         >
-            <div className="card-content">
-                <img
-                    src={pokemon.sprite}
-                    alt={`${pokemon.name} sprite`}
-                    className="pokemon-sprite"
-                    data-testid="pokemon-sprite"
-                    loading="lazy"
-                />
-                <h3
-                    className="pokemon-name"
-                    data-testid="pokemon-name"
-                >
-                    {pokemon.name}
-                </h3>
-                <div className='pokemon-types'>
-                    {pokemon.types.map(type => (
-                        <span key={type} className={`type-badge type-${type}`}>
-                            {type}
-                        </span>
-                    ))}
-                </div>
-            </div>
+            <img
+                src={pokemon.sprite}
+                alt={`${pokemon.name} sprite`}
+                className="pokemon-sprite"
+                data-testid="pokemon-sprite"
+                loading="lazy"
+            />
+            <h3
+                className="pokemon-name"
+                data-testid="pokemon-name"
+            >
+                {pokemon.name}
+            </h3>
         </div>
     );
 };
