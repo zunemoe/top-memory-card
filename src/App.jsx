@@ -6,6 +6,8 @@ import { useLocalStorage } from './hooks/useLocalStorage.js';
 import { fetchMultiplePokemon } from './services/pokemonAPI.js';
 import { generateRandomPokemonIds } from './utils/gameLogic.js';
 import { DIFFICULTY_CONFIG, GAME_STATES } from './utils/constants.js';
+import Icon from '@mdi/react';
+import { mdiVolumeHigh, mdiVolumeOff } from '@mdi/js';
 import './styles/main.css'
 
 function App() {
@@ -139,11 +141,14 @@ function App() {
         return (
           <div className="game-container">
             <div className="game-header">
-              <button onClick={handleBackToMenu} className="back-to-menu-btn">
-                Back to Menu
-              </button>
-              <h2 className="game-high-score">High Score: {highScores[selectedDifficulty]}</h2>
-              <h2 className="game-score">Current Score: {currentScore}</h2>
+              <div className="game-header-menu">
+                <button onClick={handleBackToMenu} className="back-to-menu-btn">
+                  Back to Menu
+                </button>
+                <h1 className="title">Pokemon Memory Card Game</h1>
+                <button className="mute-btn"><Icon path={mdiVolumeOff} size={1} /></button>
+              </div>
+              <h2 className="game-score">High Score: {highScores[selectedDifficulty]} | Current Score: {currentScore}</h2>
               <p className="game-board-difficulty">Difficulty: {DIFFICULTY_CONFIG[selectedDifficulty]?.label}</p>
             </div>
             <GameBoard

@@ -1,5 +1,6 @@
 .intro-screen {
     font-family: var(--font-primary);
+    width: 100%;
 }
 
 .intro .title {
